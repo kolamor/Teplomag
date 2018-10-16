@@ -1,0 +1,56 @@
+body{
+#background-image:url(images/grey.jpg);
+background-color: #eff0f4;	
+} 
+.nav-link{
+	color: #ffffff;
+	font-size: 19px;
+	text-shadow: 4px 4px 9px #000000;
+	
+}
+.nav-link:hover{
+	text-shadow: 6px 6px 12px #ff5454;
+
+}
+.headline{
+	font-size: 18px;
+}
+.image_prime{
+	height : 200px;
+	width : 250px;
+	float:left; 
+    margin: 7px 20px 7px 0; 
+}
+.headline_text{
+	font-size: 19px;
+	
+}
+.logo_image{	
+	
+    margin: 35px 0;
+	}
+	
+
+.image_logo{
+	width : 340px;
+}
+
+.telshapka{
+	color: #2f6cef;
+	margin: 10px 0;
+	font-size: 24px;
+	text-align: right;
+	padding-right: 30px;
+	line-height: 1.3em;
+}
+	
+.sh_discription{
+	padding-left: 12px;
+	font-size: 17px;
+	text-align: center;
+	margin: 15px 0;
+	line-height: 1.2em;
+	
+}	
+	
+}

@@ -1,0 +1,222 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link href="{% static 'trew.css' %}" rel = "stylesheet" type="text/css"/>
+	
+
+</head>
+<body>
+
+     
+     {% block content %}
+ 
+   
+       
+       
+   
+
+
+     {% endblock content %}
+
+     {% block menu %}
+
+
+
+
+
+
+  
+      <div class="container">
+      
+        <div class="row">
+          <div class="col-4">
+            <div class="logo_image">
+              <img class="image_logo" src="{% static 'images/logo.png' %}">
+            
+            </div>
+          </div>
+          <div class="col-lg-4 d-none d-lg-block">
+          
+            <div class="sh_discription">
+              Оборудование для учета ресурсов.<br>
+              Более 10 лет на рынке энергосбережения.<br>
+              
+              Счетчики холодной и горячей воды. Теплосчетчики.
+            </div>
+        
+          </div>
+          <div class="col-lg-4 d-none d-lg-block">
+            <div class="telshapka">
+              <img class="image_logo_telephone" src="{% static 'images/telephone.png' %}">
+              +7 (495) 510-83-10<br>
+              +7 (985) 381-55-65<br>
+              <img class="image_logo_email" src="{% static 'images/email.png' %}">
+              5108310@mail.ru
+            </div>
+          </div>
+        
+        </div>
+      </div>
+     
+
+    
+
+   
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #b32428; ">
+    <div class="container"> 
+     
+    <div class="row justify-content-md-center">
+        
+      
+          
+             <a class="navbar-brand" href="#"></a>
+           <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+             
+           
+          
+
+           
+           </button>
+
+           
+           
+           
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        
+        
+            <ul class="navbar-nav mr-auto">
+            
+            
+              <div class="col-auto">
+                <li class="nav-item ">
+                    <a class="nav-link text-white" href="/">Главная</a>
+                </li>
+              </div>
+              
+             
+              <div class="col-auto ">
+                  <div class="nav-item">
+                   <a class="nav-link text-white " href="/about">О компании </a>
+                  </div>
+              </div>
+              <div class="col-auto">
+                <li class="nav-item ">
+                    <a class="nav-link text-white" href="/uslugi">Услуги</a>
+                </li>
+              </div>
+              <div class="col-auto">      
+                   <li class="nav-item ">
+                    <a class="nav-link text-white"  href="/works">Наши работы</a>
+                   </li>
+      
+              </div>
+              <div class="col-auto">
+
+                    <li class="nav-item">
+                    <a class="nav-link text-white" href="/catalog">Каталог</a>
+                    </li>
+
+              </div>
+              <div class="col-auto">
+                    <li class="nav-item">
+                    <a class="nav-link text-white" href="/contact">Контакты</a>
+                    </li>                   
+              </div>
+              <div class="col-auto">
+                    <li class="nav-item">
+                    <a class="nav-link text-white" href="/poleznoe">Полезное</a>
+                    </li>
+              </div>
+              <div class="col-auto">
+                    
+                    <li class="nav-item">
+                    <a class="nav-link text-white" href="/obrsvaz">Обратная связь</a>
+                    </li>
+              </div>
+
+                   
+                  
+            
+            </ul>
+  
+            </div>
+      
+        </div>
+    </div>     
+  </nav>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+     {% endblock menu %}
+{% block scont%}
+<div class="container">
+  <div class="row">
+    <div class="col6">
+    
+     
+      <h3>{{ name }}</h3>
+      <h6>{{ adress }}
+      {{ tel }}
+      {{ email }}</h6>
+
+      
+
+
+</div>
+ </div>
+</div>
+{% endblock scont %}
+{% block cattext%}
+{% endblock cattext%}
+
+
+{% block sertif%}
+
+<!-- <div><img src="/static/1.jpg" align="right" width="189" height="255"></div> -->
+
+{% endblock sertif%}
+
+
+      {% block itext%}
+      {% endblock itext%}
+    
+
+<div class="container">
+  <div class="row">
+    <div class="col6 ">
+        {% block products%}
+        {% endblock products%}
+      
+
+
+    </div>
+
+  </div>
+  
+</div>
+
+
+  
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> 
+    <script type="js/bootstrap.min.js"></script>
+</body>
+</html>

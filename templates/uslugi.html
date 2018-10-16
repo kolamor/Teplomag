@@ -1,0 +1,35 @@
+{% extends "ticket/index.html"%}
+
+{% block content %}
+    <h1>Услуги</h1>
+{% endblock content %}
+
+
+{% block itext%}
+ 
+
+
+{% for usl in uslugi %}
+   
+ <table border="1" >
+
+
+
+<th>{{usl.id}}</th>
+
+
+<th>{{usl.service}}</th>
+<th>{{usl.value}}</th>
+
+</table>
+
+   
+
+{% endfor%}
+
+
+
+
+
+
+{% endblock itext%}

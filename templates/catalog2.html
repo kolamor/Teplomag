@@ -1,0 +1,39 @@
+{% extends "catalog.html"%}
+
+
+{% block content %}
+    <h1>Catalog2</h1>{{slug}}
+{% endblock content %}
+
+{%block du%}
+
+					{% for n in new %} 
+				<a href="{{ n.get_absolute_url }}?cat={{slug}}">
+					<button type="button my-4rem py-1rem" class="btn btn-outline-primary" style="font-size: 12px;">{{n.title}}</button>
+				</a>
+
+					{% endfor %} 
+{%endblock du%}
+
+
+
+{% block pathcat%}
+					<li class="breadcrumb-item"><a href="/catalog">Каталог</a></li>
+					<li class="breadcrumb-item"><a href="{{ ls.get_absolute_url }}">{{ls.title}} </a></li>
+					<li class="breadcrumb-item active" aria-current="page">{{product.title}}</li>
+				  </ol>
+				</nav>
+				
+				</br>
+				
+				
+					
+{% endblock pathcat%}
+
+{% block itext%}
+
+ 
+
+
+
+{% endblock itext%}

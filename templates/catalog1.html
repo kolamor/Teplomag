@@ -1,0 +1,24 @@
+{% extends "catalog.html"%}
+
+
+
+{% block content %}
+    <h1>Catalog1</h1>
+{% endblock content %}
+
+					{% block list_cattext%}
+					
+					
+					{% for n in new %}
+					 
+
+					  <a href="{{ n.get_absolute_url }}" class="list-group-item list-group-item-action">{{n.title}} </a>
+					  {% endfor %} 
+					  {% endblock list_cattext%}
+
+					  {% block pathcat%}
+					  <li class="breadcrumb-item"><a href="/catalog">Каталог</a></li>
+					  <li class="breadcrumb-item active" aria-current="page">{{product.title}}</li>
+					  {% endblock pathcat%}
+
+

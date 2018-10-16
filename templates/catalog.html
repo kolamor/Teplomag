@@ -1,0 +1,186 @@
+{% extends "ticket/glavna.html"%}
+
+
+{% block content %}
+    <h1>Catalog</h1>
+{% endblock content %}
+
+
+
+{% block cattext%}
+
+       <div class="container"> 
+		<div class="row justify-content-md-center">
+		
+			<div class="col row justify-content-md-center ">
+			<h3> Каталог продукции</h3>
+
+			</br>
+			</div>
+		</div>
+	</div>	
+	
+	<div class="container"> 
+		<div class="row ">
+		
+			<div class="col-5">
+				{% block du %}
+				{% endblock du %}
+		  
+					<div class="list-group">
+					  
+					  </a>
+					  {% block list_cattext%}
+						  
+							  {% for vod in vodoshet%}
+							  
+
+								  <a href="{{ vod.get_absolute_url }}" class="list-group-item list-group-item-action">{{vod.title}} </a>
+							  
+							  
+							  {% endfor %}
+				
+
+					  {% endblock list_cattext%}
+				
+					   </a>
+					</div>
+			</div>
+			
+			<div class="col-7">
+			
+							
+
+				<nav aria-label="breadcrumb">
+				  <ol class="breadcrumb">
+				  	{% block pathcat%}
+					<li class="breadcrumb-item"><a href="/catalog">Каталог</a></li>
+					
+				  </ol>
+				</nav>
+				
+				</br>
+				
+				
+				{% endblock pathcat%}
+				
+			</div>
+		
+		
+		</div>
+	</div>	  
+         
+
+       
+ 
+{% endblock cattext%}
+
+
+{% block products%}
+
+	
+
+
+
+<div class="container"> 
+		<div class="row ">
+
+			
+ {%for product in page_object %}
+    
+    {% if product.image == '' %}
+
+
+
+	
+		
+			<div class="col-auto my-2">
+				<div class="card" style="width: 14rem; height:18rem; border:1px solid #b32428;">
+					
+					<img class="card-img-top" style="height:11rem; width: 14rem" src="images/11.jpg" alt="{{product.title}}">
+						<div class="card-body">
+							<a class="card-text "  href="{{ product.get_absolute_url }} ">{{product.title}}</a>
+							{{product.object_list}}
+							
+														
+							<p class="card-text">{{product.price}}</p>
+						
+						</div>
+				</div>
+		</div>
+			
+
+		
+
+
+    {% else %}
+
+			<div class="col-auto mt-2">
+				<div class="card" style="width: 14rem; height:18rem; border:1px solid #b32428;">
+					<img class="card-img-top" style="height:11rem; width: 14rem" src="{{product.image.url}}" alt="{{ product.get_absolute_url }}">
+						<div class="card-body">
+							<a class="card-text "  href="{{ product.get_absolute_url }} ">{{product.title}}</a>
+						
+											
+							<p class="card-text">{{product.price}}</p>
+							
+						</div>
+				</div>
+			</div>
+
+
+
+
+
+    {%endif%}
+   
+
+
+ {% endfor %}
+
+
+	<div class="container"> 
+		<div class="row ">
+			<div class="col-auto">
+
+
+			<nav aria-label="...">
+			  <ul class="pagination">
+			    <li class="page-item {% if not prev_url %} disabled {% endif %}">
+			      <a class="page-link" href="{{ prev_url }}" tabindex="-1"><</a>
+			    </li>
+
+		    
+		   
+		    
+
+		    {% for n in page_object.paginator.page_range %}
+
+		      {% if page_object.number == n %}
+
+		      <li class="page-item active">
+		      <a class="page-link" href="?page={{ n }}">{{ n }}<span class="sr-only">(current)</span></a>
+		    </li>
+
+		    {% elif n > page_object.number|add:-3 and n < page_object.number|add:3 %}
+
+
+		    <li class="page-item">
+		    	<a class="page-link" href="?page={{ n }}"}>{{ n }}</a>
+		    </li>
+		    {% endif %}
+
+		    {% endfor %}
+		    <li class="page-item {% if not next_url %} disabled {% endif %}">
+		      <a class="page-link" href="{{ next_url }}" tabindex="1">></a>
+		    </li>
+		  </ul>
+		</nav>
+
+
+</div>
+</div>
+</div>
+
+
+		{% endblock products%}
