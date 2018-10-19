@@ -9,26 +9,64 @@
  
 
 
-{% for usl in uslugi %}
-   
- <table border="1" >
 
 
 
-<th>{{usl.id}}</th>
+
+	<div class="container ">
+		<div class="row " >
+			<div class="col-12 pl-3 mt-2">
+
+					<div class="zag" style="text-align: center;"><h3>Наши услуги</h3></div>
+				- Устанавливаем и продаем водосчетчики европейского качества, на холодную и горячую воду.</br>
+
+				- Заменяем водосчетчики с окончившимся межповерочным интервалом.</br>
+
+				- Продажа и установка приборов учета тепла</br>
+
+				- Продажа оборудования и комплектующие материалы для отопления и водоснабжения</br>
+
+				- Услуги по ремонту и поверке приборов
+			
+
+		
+			</div>
+		</div>
+	</div>
 
 
-<th>{{usl.service}}</th>
-<th>{{usl.value}}</th>
+	
+	<div class="container mt-3">
+		<div class="row w-100">
+			
+				<table class="table table-striped">
+					  <thead>
+						<tr>
+						<th scope="col">#</th>
+						  
+						  <th scope="col">Услуга</th>
+						  <th scope="col">Цена</th>
+						 
+						</tr>
+					  </thead>
+					 
+					  <tbody>
+						{% for usl in uslugi %}
+						<tr>
+						  <th scope="row">{{usl.id}}</th>
+						  
+						  <td> {{usl.service}}</td>
+						  <td>{{usl.value}}</td>
+						  
+						</tr>
+						{% endfor%}
 
-</table>
-
-   
-
-{% endfor%}
-
-
-
+						
+					  </tbody>
+				</table>
+			
+		</div>
+	</div>
 
 
 
