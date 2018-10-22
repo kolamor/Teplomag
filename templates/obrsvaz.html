@@ -1,36 +1,61 @@
 {% extends "ticket/index.html"%}
 
 {% block content %}
-    <h1>обратная связь</h1>
+    
 {% endblock content %}
 
 {% block itext%}
 
 
+<div class="container">
+    
+    <div class="row justify-content-md-center">
+    
+    
+        <div class="col-auto my-4 " style="text-align: center;">
 
-<form action="{% url 'tag_create_url' %}" method="post">
-  {% csrf_token %}
+          <form action="{% url 'tag_create_url' %}" method="post">
+            {% csrf_token %}
 
-{% for field in form %}
-   <div class="form-group">
-   	 {% if field.errors %}
-   	      <div class="alert alert-danger">
-   	      	{{field.errors}}
-   	      </div>
-   	  {% endif %}
+            {% for field in form %}
+               <div class="form-group">
+               	 {% if field.errors %}
+               	      <div class="alert alert-danger">
+               	      	{{field.errors}}
+               	      </div>
+               	  {% endif %}
 
-   	  {{ field.label }}
-   	  {{ field }}
-   	
-   </div>
-{% endfor %}
+               	  {{ field.label }}
+               	  {{ field }}
+               	
+               </div>
+            {% endfor %}
 
- 
+           
 
-  <button type="submit" class="btn btn-primary" > отправить</button>
+            <button type="submit" class="btn btn-primary" style="background-color: #b32428;
+      border: 0px;"> отправить</button>
 
 
- 
-</form>
+        </form>
+
+        </div>
+    </div>
+</div>
 
 {% endblock%}
+
+
+{% block products%}
+<div class="container">
+    
+    <div class="row justify-content-md-center">
+    
+    
+        <div class="col-flex-12  "">
+          <p><script type="text/javascript" charset="utf-8" src="//api-maps.yandex.ru/services/constructor/1.0/js/?sid=AYEsZKX-A1aMKB6Izarf5rv3hMf9gXEm&width=1200&height=450"></script></p>
+
+        </div>
+    </div>
+</div>
+{% endblock products%}

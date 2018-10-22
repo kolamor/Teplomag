@@ -6,7 +6,7 @@ from ticket.models import CatSchetchic, VodTepSchetchic, Schetchic, Du
 class SchetchicAdmin(admin.ModelAdmin):
 	
 	prepopulated_fields = {'slug': ('title',)}
-	list_display = ('title', )
+	list_display = ('title',  )
 
 
 # Register your models here.

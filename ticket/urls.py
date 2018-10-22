@@ -7,7 +7,7 @@ from django.views.generic import TemplateView
 
 urlpatterns = [
    
-    path('', views.cont_list, name='index'),
+    path('', IndexHtml.as_view(), name='index'),
    
     
 

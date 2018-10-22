@@ -3,9 +3,9 @@
 
 
 {% block content %}
-    <h1>Catalog</h1>
+    
 {% endblock content %}
-<h1>{{new}}</h1>
+
 
 
 {% block itext%}
@@ -19,7 +19,7 @@
 
 
 
-				<img src="{{new.image.url}}" class="img-fluid" alt="Responsive image">
+				<img src="{{new.image.url}}" class="img-fluid w-75" alt="Responsive image">
 				{%endif%}
 				
 				
@@ -33,7 +33,8 @@
 						<li class="breadcrumb-item"><a href="/catalog">Каталог</a></li>
 						<li class="breadcrumb-item"><a href="{{ ls.get_absolute_url }}">{{ ls.title }} </a></li>
 						<li class="breadcrumb-item"><a href="{{ ls1.get_absolute_url }}">{{ ls1.title }} </a></li>
-						<li class="breadcrumb-item active" aria-current="page">{{ls3}}</li>
+						<li class="breadcrumb-item"><a href="{{ ls2.get_absolute_url }}?cat={{ls1.slug}}">{{ ls2.title }} </a></li>
+						<li class="breadcrumb-item active" aria-current="page">{{new.title}}</li>
 					</ol>
 				</nav>
 						
@@ -65,48 +66,16 @@
 		</div>
 		
 		<div class="col-5" style="border:1px solid #939176; font-size: 14px;">
-		<p>Наименование параметра	Норма</p>
-			Класс точности	- (2)<br>
-			Расход воды, - (м3/ч)<br>
-			- минимальный, - Qmin	0,006<br>
-			- переходный, - Qt	0,06<br>
-			- номинальный, Qnom	0,6<br>
-			- максимальный, Qmax	1,2<br>
-			Порог чувствительности, м3/ч, не более	0,0012<br>
-			Пределы допускаемой относительной погрешности, %<br>
-			- в диапазоне расходов от Qmin до Qt	±5%<br>
-			- в диапазоне расходов от Qt до Qmax	±2%<br>
-			Частота импульса, л/имп	0,1<br>
-			Температура измеряемой среды, °С	+10...+130<br>
-			Давление измеряемой среды, МПа, не более	1,6<br>
-			Относительная влажность,%, не более	93<br>
-			Температура окружающего воздуха, °С	+5...+55<br>
-			Масса, кг, не более	1<br>
-			Монтажная длина, мм	110<br>
-			Монтажная длинна со штуцерами, мм	190<br>
-			Присоединение к трубопроводу	резьбовое<br>
-			Средний срок службы, лет, не менее	16<br>
+		 {{new.specifications}}
 		
 		
 		
 		</div>
 	</div>
  </div>
-<h1>{{new.title}}</h1>
-<h3>{{new.text}}</h3>
-<h3>{{new.price}}</h3>
-<h3>{{new.shdu}}</h3>
-
-
-{%if new.image != ''%}
-
-<h5><div><img src="{{new.image.url}}"  width="200" height="200"></div></h5>
-{%endif%}
 
 
 
  
-
-
 
 {% endblock itext%}

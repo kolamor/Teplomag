@@ -9,7 +9,7 @@
 			<div class="col-auto ">
 			</br>
 				<div class="headline_primory">
-					<h3>ООО Тепломаг - установка водосчетчиков</h3>
+					<h3>ООО Тепломаг - оборудование учета ресурсов.</h3>
 				</div>
 	   
 	    
@@ -26,7 +26,7 @@
 	  
 		<div class="row ">
 			
-				<div class="col-12">
+				<div class="col-12 px-0">
 				
 					
 					<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -99,29 +99,99 @@
 	</div>
 
 
+
+
+
 <div class="container">
 	  
 		<div class="row justify-content-md-center">
 		
 		
-		    <div class="col-auto my-4">
-			
-			<button type="button" class="btn btn-primary btn-lg" style="background-color: #b32428;
-			border: 0px;">Заказать звонок</button>
+		    <div class="col-auto my-4 " style="text-align: center;">
 
-		
+				<!-- Button trigger modal -->
+				<button type="button" class="btn btn-primary btn-lg"" data-toggle="modal" data-target="#exampleModalCenter" style="background-color: #b32428;
+			border: 0px;">
+				  Заказать звонок
+				</button>
+
+				<!-- Modal -->
+				<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+				  <div class="modal-dialog modal-dialog-centered" role="document">
+				    <div class="modal-content" style="background-color: #eff0f4;">
+				      <div class="modal-header">
+				        <h5 class="modal-title" id="exampleModalLongTitle">Закажите обратный звонок</h5>
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				          <span aria-hidden="true">&times;</span>
+				        </button>
+				      </div>
+				      <div class="modal-body">
+
+				        
+				        <form action="{% url 'tag_create_url' %}" method="post">
+							  {% csrf_token %}
+
+							{% for field in form %}
+							   <div class="form-group">
+							   	 {% if field.errors %}
+							   	      <div class="alert alert-danger">
+							   	      	{{field.errors}}
+							   	      </div>
+							   	  {% endif %}
+
+							   	  {{ field.label }}
+							   	  {{ field }}
+							   	
+							   </div>
+							{% endfor %}
+
+							 
+
+							  <button type="submit" class="btn btn-primary" style="background-color: #b32428"> отправить</button>
+
+
+ 
+							</form>
+
+				      </div>
+				      
+				    </div>
+				  </div>
+				</div>
+</div>
+		</div>
 			</div>
-		
-		
-		
+
+
+
+
+<div class="container">
+	  
+		<div class="row justify-content-md-center">
+			<div class="col-7 ml-5 "> 
+				<div class="headline_text" >
+						<div style="text-indent: 35px;font-size: 23px;">В наши услуги входит:</div>
+					<li style="text-indent: 11px;">первичный монтаж счетчиков воды;</li>
+					<li style="text-indent: 11px;">замена счетчиков;</li>
+					<li style="text-indent: 11px;">поверка счетчиков воды без снятия(на дому);</li>
+					<li style="text-indent: 11px;">поверка счетчиков со снятием(в лаборатории);</li>
+					<li style="text-indent: 11px;">монтаж теплосчетчиков;</li>
+					<li style="text-indent: 11px;">замена теплосчетчиков;</li>
+					<li style="text-indent: 11px;">поверка теплосчетчиков(только в лаборатории);</li>
+					
+					
+					
+					
+				</div>
+
+			</div>
 		</div>
 	</div>
 
-
-	<div class="container ">
+	<div class="container my-5 ">
 	  
 		<div class="row justify-content-md-center ">
-			<div class="col-12"> 
+			<div class="col-12 px-0"> 
 			
 			
 				<img class="img-fluid ml-lg-5" src="{% static 'images/tesis5.jpg' %}">
@@ -144,9 +214,8 @@
 						<div style="text-indent: 25px;font-size: 23px;">Система контроля качества работ состоит из следующих звеньев:</div>
 					<li style="text-indent: 11px;">квалифицированные мастера-сантехники, имеющие опыт работы от трех лет и более;</li>
 					<li style="text-indent: 11px;">детальный осмотр коммуникаций, позволяющий определить нужную и оптимальную комплектацию для проведения работ;</li>
-					<li style="text-indent: 11px;">установка только сертифицированного оборудования;
-					гарантия;</li>
-					</p>
+					<li style="text-indent: 11px;">установка только сертифицированного оборудования;</li>
+					
 					
 					
 					

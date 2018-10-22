@@ -107,7 +107,7 @@ class VodTepSchetchic(models.Model):
 		ordering = ['category']
 
 	def __str__(self):
-		return '{}''_''{}'.format(self.title, self.category )
+		return '{}'.format(self.title )
 
 	def get_absolute_url(self):
 		return reverse('catalogvidview', kwargs={'slug' : self.slug})
@@ -139,6 +139,8 @@ class Schetchic(models.Model):
 	title = models.CharField('название', max_length=50)
 	slug = models.SlugField('slug', unique=True)
 	text = models.TextField('описание', blank=True)
+	specifications = models.TextField('характиристики', blank=True)
+
 	category = models.ForeignKey(CatSchetchic, verbose_name='Категория',
          on_delete=models.CASCADE, null=True)
 	vodcategory = models.ForeignKey(VodTepSchetchic, verbose_name='вод теп Счетчик',

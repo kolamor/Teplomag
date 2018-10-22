@@ -34,16 +34,33 @@ def catalog_paginator( paginator, page_number ):
 
 
 
-def cont_list(request):
-	"""Вывод всех новостей"""
-	new = Scont.objects.get()
-	textz = IndexPrimary.objects.get()
+# def cont_list(request):
+# 	"""Вывод всех новостей"""
+# 	new = Scont.objects.get()
+# 	textz = IndexPrimary.objects.get()
 	
 	
-	return render(request,'ticket/index.html', context={'name' : new.name, 'adress' : new.adress1,
-	              'tel' : new.contact1, 'email'  : new.maile1, 'zag' : textz.name, 'texts' : textz.texts,
-	              'dop1' : textz.doptext1, 'dop2' : textz.doptext2, 'dop3' : textz.doptext3,
-	              'dop4' : textz.doptext4 })
+# 	return render(request,'ticket/index.html', context={'name' : new.name, 'adress' : new.adress1,
+# 	              'tel' : new.contact1, 'email'  : new.maile1, 'zag' : textz.name, 'texts' : textz.texts,
+# 	              'dop1' : textz.doptext1, 'dop2' : textz.doptext2, 'dop3' : textz.doptext3,
+# 	              'dop4' : textz.doptext4 })
+
+class IndexHtml(View):
+	
+	def get(self, request):
+
+		form = TagForm()
+		return render(request, 'ticket/index.html', context={'form': form})
+
+	def post(self, request):
+		bound_form = TagForm(request.POST)
+
+		if bound_form.is_valid():
+			new_tag = bound_form.save()
+			return redirect('obrsvaz1.html')
+
+		return render(request, '/', context={'form' : bound_form })
+
 
 
 
@@ -54,7 +71,7 @@ class ShcontView(TemplateView):
 	def get(self, request):
 
 	    sh = Scont.objects.get()
-	    cont = cont_list(request)
+	    
 
 	    aboutmod = About.objects.get()
  
@@ -86,7 +103,7 @@ class CatalogView(TemplateView):
 		vodoshet = CatSchetchic.objects.all()
 		products = Schetchic.objects.all()
 			
-		paginator = Paginator(products,12)		
+		paginator = Paginator(products,15)		
 		page_number = request.GET.get('page', 1)
 		page, prev_url, next_url = catalog_paginator(paginator, page_number)
 
@@ -107,7 +124,7 @@ class CatalogClassView(View):
 		product = CatSchetchic.objects.get(slug__iexact=slug)
 		new = product.vodtepschetchic_set.all()
 		products = product.schetchic_set.all()
-		paginator = Paginator(products,12)		
+		paginator = Paginator(products,15)		
 		page_number = request.GET.get('page', 1)
 		page, prev_url, next_url = catalog_paginator(paginator, page_number)
 
@@ -134,7 +151,7 @@ class CatalogVidView(View):
 		new = product.du_set.all().filter(vodcategory=product.id)
 		products = product.schetchic_set.all()
 		
-		paginator = Paginator(products,12)		
+		paginator = Paginator(products,15)		
 		page_number = request.GET.get('page', 1)
 		page, prev_url, next_url = catalog_paginator(paginator, page_number)
 		context={
@@ -166,7 +183,7 @@ class CatalogDuView(View):
 		new = product.schetchic_set.all().filter(vodcategory=idcat.id)
 		products = product.schetchic_set.all().filter(vodcategory=idcat.id)
 
-		paginator = Paginator(products,4)		
+		paginator = Paginator(products,15)		
 		page_number = request.GET.get('page', 1)
 		page, prev_url, next_url = catalog_paginator(paginator, page_number)
 
@@ -193,7 +210,23 @@ class SelectPrice(View):
 
 		product = Schetchic.objects.get(slug__iexact=slug)
 		new = product
-		return render(request, 'selectprice.html', context={'new' : new, 'slug' : slug})
+
+		ls = CatSchetchic.objects.get(title__iexact=product.category)
+		ls1 = VodTepSchetchic.objects.get(title__iexact=product.vodcategory) 
+		try:
+			ls2 = Du.objects.get(title__iexact=product.shdu)
+		except:
+			ls2 = ''
+
+
+		context={
+				'new' : new,
+				 'ls': ls,
+		         'ls1': ls1,
+		         'ls2': ls2,
+
+				 'slug' : slug}
+		return render(request, 'selectprice.html', context)
 
 
 class TagCreate(View):

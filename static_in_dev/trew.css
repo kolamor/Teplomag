@@ -1,5 +1,6 @@
+{% load static %}
 body{
-#background-image:url(images/grey.jpg);
+background: url(images/greyfon.jpg ) no-repeat fixed;
 background-color: #eff0f4;	
 } 
 .nav-link{
